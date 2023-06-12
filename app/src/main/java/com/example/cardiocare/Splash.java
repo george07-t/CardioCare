@@ -26,19 +26,12 @@ public class Splash extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startApp();
+
+                Intent intent=new Intent(Splash.this,GetStarted.class);
+                startActivity(intent);
+                finish();
             }
         },3000);
-/*        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-
-
-
-            }
-
-        });
-        thread.start();*/
     }
 
     private void startApp() {

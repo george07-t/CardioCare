@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "304696889417",
+    "project_id": "cardiocare-3ea4c",
+    "storage_bucket": "cardiocare-3ea4c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:304696889417:android:8b84df1197242eb3712f98",
+        "android_client_info": {
+          "package_name": "com.example.cardiocare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "304696889417-uchp6b1rkeajpbcft8jebo6hlm18gsqe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBV6Pmh6Cdt-faI0_ix5SLF4lVy4fFuTk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "304696889417-uchp6b1rkeajpbcft8jebo6hlm18gsqe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

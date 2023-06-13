@@ -2,16 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
-    >
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/titleImage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:src="@drawable/image1"/>
+        android:src="@drawable/image1" />
 
     <TextView
         android:id="@+id/texttitle"
@@ -21,7 +20,7 @@
         android:text="@string/heading_one"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="28dp"/>
+        android:textSize="28dp" />
 
     <TextView
         android:id="@+id/textdeccription"
@@ -31,7 +30,8 @@
         android:text="@string/desc_one"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="16dp"/>
+        android:textSize="16dp" />
+
 
 
 </LinearLayout>

@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class GetStarted extends AppCompatActivity {
     ViewPager mSLideViewPager;
     LinearLayout mDotLayout;
-    Button backbtn, nextbtn, skipbtn;
+    Button backbtn, nextbtn, skipbtn,getstart;
 
     TextView[] dots;
     private FirebaseAuth mAuth;
@@ -39,6 +39,7 @@ public class GetStarted extends AppCompatActivity {
         backbtn = findViewById(R.id.backid);
         nextbtn = findViewById(R.id.nextid);
         skipbtn = findViewById(R.id.skipid);
+        getstart=findViewById(R.id.getstart);
 
         SharedPreferences preferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         boolean onboardingShown = preferences.getBoolean(PREFS_KEY_ONBOARDING_SHOWN, false);
@@ -61,7 +62,16 @@ public class GetStarted extends AppCompatActivity {
 
         setUpIndicator(0);
         mSLideViewPager.addOnPageChangeListener(viewListener);
+        getstart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(mSLideViewPager.getCurrentItem() == viewPagerAdapter.getCount() - 1){
+                    saveOnboardingShownFlag();
+                    checkUserLoginStatus();
+                }
 
+            }
+        });
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -122,9 +132,13 @@ public class GetStarted extends AppCompatActivity {
                 backbtn.setVisibility(View.INVISIBLE);
             }
             if (position == viewPagerAdapter.getCount() - 1) {
-                nextbtn.setText("Finish");
+                nextbtn.setVisibility(View.INVISIBLE);
+                skipbtn.setVisibility(View.INVISIBLE);
+                getstart.setVisibility(View.VISIBLE);
             } else {
                 nextbtn.setText("Next");
+                getstart.setVisibility(View.INVISIBLE);
+                skipbtn.setVisibility(View.VISIBLE);
             }
         }
 

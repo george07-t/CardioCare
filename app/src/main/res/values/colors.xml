@@ -8,6 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="splash0">#343e56</color>
+    <color name="edit_text_background">#d9d9d9d9</color>
+    <color name="main">#6C63FF</color>
     //onboarding colors
     <color name="background">#F0F4F3</color>
     <color name="buttontext">#50C2C9</color>

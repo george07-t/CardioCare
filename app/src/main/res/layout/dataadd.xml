@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:background="@color/splash0"
+        android:padding="20dp"
+        android:text="Data Add"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/sysid"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:background="@color/splash0"
+        android:digits="0123456789"
+        android:hint="Systolic pressure in mm Hg"
+        android:textColor="@color/white"
+        android:inputType="number"
+        android:paddingLeft="20dp"
+        android:textColorHint="@color/white" />
+
+    <EditText
+        android:id="@+id/dyaid"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:background="@color/splash0"
+        android:digits="0123456789"
+        android:hint="Diastolic pressure in mm Hg"
+        android:textColor="@color/white"
+        android:inputType="number"
+        android:paddingLeft="20dp"
+        android:textColorHint="@color/white" />
+
+    <EditText
+        android:id="@+id/heartid"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:background="@color/splash0"
+        android:digits="0123456789"
+        android:hint="heart rate in beats per minute"
+        android:inputType="number"
+        android:textColor="@color/white"
+        android:paddingLeft="20dp"
+        android:textColorHint="@color/white" />
+
+    <Button
+        android:id="@+id/datainsertid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/splash0"
+        android:text="Add Measurement"
+        android:textColor="@color/white" />
+
+</LinearLayout>

@@ -6,97 +6,105 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".UserProfileShow">
+    tools:context=".UserProfileShow"
+    android:background="@color/white">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"
         android:layout_margin="10dp"
-        android:background="@drawable/rounded_shape"
         android:orientation="vertical"
-        android:gravity="center"
+        android:gravity="top"
+        android:layout_marginTop="30dp"
         android:padding="10dp">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="USER PROFILE"
-        android:id="@+id/header"
-        android:textSize="36sp"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        android:textColor="@color/white"/>
 
-    <ImageView
-        android:layout_width="332dp"
-        android:layout_height="136dp"
-        android:src="@drawable/baseline_person_pin_24" />
-    <LinearLayout
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginBottom="50dp">
+            <ImageView
+                android:layout_width="332dp"
+                android:layout_height="200dp"
+                android:src="@drawable/profile_pic"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="30dp"
+                android:layout_gravity="center" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="User Profile"
+                android:id="@+id/header"
+                android:textSize="32dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                />
+        </LinearLayout>
+
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+            android:background="@drawable/profile_details_background"
+            android:layout_marginBottom="10dp"
         >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Name    :"
-            android:textStyle="bold"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/white" />
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="GTR"
+            android:text=""
+            android:drawableLeft="@drawable/name_icon"
+            android:drawablePadding="20dp"
             android:id="@+id/disnameid"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="@drawable/profile_details_background"
+        android:layout_marginBottom="10dp"
+
         >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Email     :"
-            android:textStyle="bold"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/white" />
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="georgetonmoy07@gmail.com"
+            android:text=""
+            android:drawableLeft="@drawable/email_icon"
+            android:drawablePadding="20dp"
             android:id="@+id/disemailid"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/white" />
+            android:textColor="@color/black"
+            android:textIsSelectable="true"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="@drawable/profile_details_background"
+        android:layout_marginBottom="10dp"
         >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:textStyle="bold"
-            android:text="Phone \nNumber :"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/white" />
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="33dp"
-            android:text="01828113846"
+            android:layout_margin="10dp"
+            android:text=""
+            android:drawableLeft="@drawable/phone_icon"
+            android:drawablePadding="20dp"
             android:id="@+id/disnumberid"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/white" />
+            android:textColor="@color/black"
+            android:textIsSelectable="true"/>
     </LinearLayout>
     </LinearLayout></LinearLayout>

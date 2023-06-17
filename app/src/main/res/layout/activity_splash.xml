@@ -5,7 +5,7 @@
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#343e56"
+    android:background="#6C63FF"
     app:layoutDescription="@xml/activity_splash_scene"
     tools:context=".Splash">
 

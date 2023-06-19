@@ -54,8 +54,6 @@ public class MainActivity extends AppCompatActivity {
     NavigationView navigationView;
     UserMeasurementDetails userMeasurementDetails;
     ActionBarDrawerToggle toggle;
-    SharedPreferences sharedPreferences;
-    SharedPreferences.Editor editor;
     ImageView imageMenu;
     DatabaseReference databaseReference, databaseReference1, databaseReference2;
     private String userid;
@@ -81,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         list = new ArrayList<>();
-        viewAdapter = new UserMeasurementShowAdapter(getApplicationContext(), list);
+        viewAdapter = new UserMeasurementShowAdapter(MainActivity.this, list);
         recyclerView.setAdapter(viewAdapter);
         databaseReference1 = FirebaseDatabase.getInstance().getReference("userdata");
         //insertdata
@@ -100,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 progressDialog.setTitle("Loading");
                 progressDialog.setMessage("Please Wait");
                 progressDialog.show();
-                databaseReference2=FirebaseDatabase.getInstance().getReference("userdata");
+                databaseReference2 = FirebaseDatabase.getInstance().getReference("userdata");
                 String key = databaseReference2.push().getKey();
                 String sysdata = sysid.getText().toString().trim();
                 String dyadata = dyaid.getText().toString().trim();
@@ -152,15 +150,21 @@ public class MainActivity extends AppCompatActivity {
                     } else {
                         comments = "No Comments :)";
                     }
-                    userMeasurementDetails = new UserMeasurementDetails(dateString, timeString, sysdata, dyadata, heartdata, comments);
+                    userMeasurementDetails = new UserMeasurementDetails(dateString, timeString, sysdata, dyadata, heartdata, comments,key);
+                    ArrayList<UserMeasurementDetails> updatedData = new ArrayList<>();
                     databaseReference2.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(key)
                             .setValue(userMeasurementDetails).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
                                         Toast.makeText(MainActivity.this, "Measurement added", Toast.LENGTH_SHORT).show();
+                                        sysid.getText().clear();
+                                        dyaid.getText().clear();
+                                        heartid.getText().clear();
                                         insert.dismiss();
-                                        recreate();
+                                        updatedData.add(userMeasurementDetails);
+                                        //recreate();
+                                        viewAdapter.updateData(updatedData);
                                         progressDialog.dismiss();
                                     } else {
                                         Toast.makeText(MainActivity.this, "Unsuccessful ", Toast.LENGTH_SHORT).show();
@@ -223,14 +227,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.Profile:
-                        FirebaseUser firebaseUser = mAuth.getCurrentUser();
-                        if (firebaseUser != null) {
-                            Intent intent = new Intent(MainActivity.this, UserProfileShow.class);
-                            startActivity(intent);
-                            drawerLayout.closeDrawers();
-                        } else {
-                            dialog();
-                        }
+                        Intent intentss = new Intent(MainActivity.this, UserProfileShow.class);
+                        startActivity(intentss);
+                        drawerLayout.closeDrawers();
 
                         break;
                     case R.id.msignout:
@@ -283,19 +282,14 @@ public class MainActivity extends AppCompatActivity {
                         drawerLayout.closeDrawers();
                         break;
                     case R.id.feedback:
-                        FirebaseUser firebaseUser1 = mAuth.getCurrentUser();
-                        if (firebaseUser1 != null) {
-                            Toast.makeText(MainActivity.this, "Feedback", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(Intent.ACTION_SEND);
-                            intent.setType("text/email");
-                            intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"georgetonmoy07@gmail.com", "roy1907114@kstud.kuet.ac.bd"});
-                            intent.putExtra(Intent.EXTRA_SUBJECT, "FEEDBACK FORM THE USER");
-                            intent.putExtra(Intent.EXTRA_TEXT, "Name= " + fullname + "\n Feedback= ");
-                            startActivity(Intent.createChooser(intent, "Feedback With"));
-                            drawerLayout.closeDrawers();
-                        } else {
-                            dialog();
-                        }
+                        Toast.makeText(MainActivity.this, "Feedback", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(Intent.ACTION_SEND);
+                        intent.setType("text/email");
+                        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"georgetonmoy07@gmail.com", "roy1907114@kstud.kuet.ac.bd"});
+                        intent.putExtra(Intent.EXTRA_SUBJECT, "FEEDBACK FORM THE USER");
+                        intent.putExtra(Intent.EXTRA_TEXT, "Name= " + fullname + "\n Feedback= ");
+                        startActivity(Intent.createChooser(intent, "Feedback With"));
+                        drawerLayout.closeDrawers();
 
                         break;
                 }
@@ -317,9 +311,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    String dataid = dataSnapshot.getKey();
 
                     UserMeasurementDetails userTicketDetails = dataSnapshot.getValue(UserMeasurementDetails.class);
-
+                    userTicketDetails.setDataid(dataid);
                     list.add(userTicketDetails);
 
                 }
@@ -332,6 +327,27 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        viewAdapter.setOnItemClickListener(new UserMeasurementShowAdapter.ClickListener() {
+            @Override
+            public void onItemClick(int position, View view) {
+                UserMeasurementDetails userMeasurementDetails1 = list.get(position);
+                String date = userMeasurementDetails1.getDate();
+                String time = userMeasurementDetails1.getTimne();
+                String systolic = userMeasurementDetails1.getSystolic();
+                String diastolic = userMeasurementDetails1.getDayastolic();
+                String heartRate = userMeasurementDetails1.getHeartrate();
+                String comment = userMeasurementDetails1.getComment();
+
+                Intent intent = new Intent(MainActivity.this, DataViewDetails.class);
+                intent.putExtra("date", date);
+                intent.putExtra("time", time);
+                intent.putExtra("systolic", systolic);
+                intent.putExtra("diastolic", diastolic);
+                intent.putExtra("heartRate", heartRate);
+                intent.putExtra("comment", comment);
+                startActivity(intent);
+            }
+        });
         adddataid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -342,25 +358,33 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void dialog() {
+    @Override
+    public void onBackPressed() {
         AlertDialog.Builder alart = new AlertDialog.Builder(MainActivity.this);
         alart.setTitle("ALERT");
-        alart.setMessage("To Continue ,You Need to Log In.");
+        alart.setMessage("Are you sure exit?");
         alart.setIcon(R.drawable.interrogation);
-        alart.setPositiveButton("Login", new DialogInterface.OnClickListener() {
+        alart.setPositiveButton("yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Intent intent = new Intent(MainActivity.this, UserLogin.class);
-                startActivity(intent);
+                finish();
             }
         });
-        alart.setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
+        alart.setNegativeButton("no", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(MainActivity.this, "Have to log in", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "App not exit yet", Toast.LENGTH_SHORT).show();
+            }
+        });
+        alart.setNeutralButton("cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(MainActivity.this, "Continue your work", Toast.LENGTH_SHORT).show();
             }
         });
         AlertDialog al = alart.create();
         al.show();
+
+
     }
 }

@@ -1,15 +1,32 @@
 package com.example.cardiocare;
 
 public class UserMeasurementDetails {
-    String date,timne,systolic,dayastolic,heartrate,comment;
+    String date,timne,systolic,dayastolic,heartrate,comment,dataid,key;
 
-    public UserMeasurementDetails(String date, String timne, String systolic, String dayastolic, String heartrate, String comment) {
+    public UserMeasurementDetails(String date, String timne, String systolic, String dayastolic, String heartrate, String comment,String key) {
         this.date = date;
         this.timne = timne;
         this.systolic = systolic;
         this.dayastolic = dayastolic;
         this.heartrate = heartrate;
         this.comment = comment;
+        this.key=key;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public String getDataid() {
+        return dataid;
+    }
+
+    public void setDataid(String dataid) {
+        this.dataid = dataid;
     }
 
     public UserMeasurementDetails() {

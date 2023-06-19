@@ -7,6 +7,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,6 +27,8 @@ public class UserResetPassword extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_reset_password);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         resetbutton = findViewById(R.id.reset_button);
         resetemail = findViewById(R.id.reset_email);
         mauth = FirebaseAuth.getInstance();
@@ -47,11 +50,13 @@ public class UserResetPassword extends AppCompatActivity {
         if (email.isEmpty()) {
             resetemail.setError("Enter Email ");
             resetemail.requestFocus();
+            progressDialog.dismiss();
             return;
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             resetemail.setError("Enter a Valid Email ");
             resetemail.requestFocus();
+            progressDialog.dismiss();
             return;
         }
         mauth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -70,5 +75,13 @@ public class UserResetPassword extends AppCompatActivity {
             }
         });
 
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId() == android.R.id.home) {
+            this.finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

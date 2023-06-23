@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">CardioCare</string>
+    //Headings
+    <string name="heading_one">H1</string>
+    <string name="heading_two">H2</string>
+    <string name="heading_three">H3</string>
+    <string name="open"></string>
+    <string name="close"></string>
+
+    //Description
+    <string name="desc_one">D1</string>
+    <string name="desc_two">D2</string>
+    <string name="desc_three">D3</string>
 </resources>

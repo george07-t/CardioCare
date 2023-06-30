@@ -7,7 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
-
+/**
+ * This activity displays the details of a data view.
+ */
 public class DataViewDetails extends AppCompatActivity {
     private TextView dateid,timeid,sytolicid,diastolicid,heartid,comid;
 

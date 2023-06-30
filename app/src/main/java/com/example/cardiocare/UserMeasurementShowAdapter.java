@@ -29,6 +29,11 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * A RecyclerView adapter that displays a list of UserMeasurementDetails objects.
+ *
+ * @author [George]
+ */
 public class UserMeasurementShowAdapter extends RecyclerView.Adapter<UserMeasurementShowAdapter.MyViewHolder> {
     Context context;
     AlertDialog insert;
@@ -37,12 +42,24 @@ public class UserMeasurementShowAdapter extends RecyclerView.Adapter<UserMeasure
     DatabaseReference databaseReference;
     FirebaseAuth mauth;
 
+    /**
+     * Creates a new UserMeasurementShowAdapter.
+     *
+     * @param context The context to use to inflate the item layout.
+     * @param list    The list of UserMeasurementDetails objects to be displayed.
+     */
     public UserMeasurementShowAdapter(Context context, ArrayList<UserMeasurementDetails> list) {
         this.context = context;
         this.list = list;
         databaseReference = FirebaseDatabase.getInstance().getReference("userdata");
     }
 
+    /**
+     * Creates a new ViewHolder object.
+     *
+     * @param parent The item layout to inflate.
+     * @return A new ViewHolder object.
+     */
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -52,6 +69,12 @@ public class UserMeasurementShowAdapter extends RecyclerView.Adapter<UserMeasure
         return new MyViewHolder(view);
     }
 
+    /**
+     * Binds the data from a UserMeasurementDetails object to the views in the corresponding item layout.
+     *
+     * @param holder   The ViewHolder object to bind the data to.
+     * @param position The position of the UserMeasurementDetails object in the list.
+     */
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         UserMeasurementDetails userTicketDetails = list.get(position);
@@ -135,7 +158,7 @@ public class UserMeasurementShowAdapter extends RecyclerView.Adapter<UserMeasure
                         String diastolicdata = dyaeditid.getText().toString().trim();
                         String hearteditdata = hearteditid.getText().toString().trim();
                         String key = userMeasurementDetails.getKey();
-                        String dateString =userMeasurementDetails.getDate();
+                        String dateString = userMeasurementDetails.getDate();
                         String timeString = userMeasurementDetails.getTimne();
                         if (systolicdata.isEmpty()) {
                             syseditid.setError("Data Required");
@@ -181,13 +204,13 @@ public class UserMeasurementShowAdapter extends RecyclerView.Adapter<UserMeasure
                             }
                             DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference("userdata").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(key);
                             Map<String, Object> updates = new HashMap<>();
-                            updates.put("date",dateString);
-                            updates.put("time",timeString);
+                            updates.put("date", dateString);
+                            updates.put("time", timeString);
                             updates.put("systolic", systolicdata);
                             updates.put("dayastolic", diastolicdata);
                             updates.put("heartrate", hearteditdata);
-                            updates.put("comment",comments);
-                            updates.put("key",key);
+                            updates.put("comment", comments);
+                            updates.put("key", key);
                             String finalComments = comments;
                             databaseReference1.updateChildren(updates).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
@@ -227,10 +250,18 @@ public class UserMeasurementShowAdapter extends RecyclerView.Adapter<UserMeasure
         return list.size();
     }
 
+    /**
+     * The ViewHolder class for the UserMeasurementShowAdapter.
+     */
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView date, time, systolic, diastolic, heartrate, comment;
         ImageButton editdata, deletedayta;
 
+        /**
+         * Creates a new ViewHolder object.
+         *
+         * @param itemView The item layout view.
+         */
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             date = itemView.findViewById(R.id.dateid);
@@ -244,6 +275,11 @@ public class UserMeasurementShowAdapter extends RecyclerView.Adapter<UserMeasure
             itemView.setOnClickListener(this);
         }
 
+        /**
+         * Handles clicks on the items in the list.
+         *
+         * @param v The View object that was clicked.
+         */
         @Override
         public void onClick(View v) {
             clickListener.onItemClick(getAdapterPosition(), v);
@@ -254,16 +290,31 @@ public class UserMeasurementShowAdapter extends RecyclerView.Adapter<UserMeasure
         void onItemClick(int position, View view);
     }
 
+    /**
+     * Sets the listener that will be notified when an item in the list is clicked.
+     *
+     * @param clickListener The listener to set.
+     */
     public void setOnItemClickListener(ClickListener clickListener) {
         UserMeasurementShowAdapter.clickListener = clickListener;
     }
 
+    /**
+     * Removes a UserMeasurementDetails object from the list and notifies the adapter that the data has changed.
+     *
+     * @param position The position of the UserMeasurementDetails object to remove.
+     */
     public void deleteItem(int position) {
         list.remove(position);
         notifyItemRemoved(position);
         notifyItemRangeChanged(position, getItemCount());
     }
 
+    /**
+     * Updates the list of UserMeasurementDetails objects and notifies the adapter that the data has changed.
+     *
+     * @param newData The new list of UserMeasurementDetails objects.
+     */
     public void updateData(ArrayList<UserMeasurementDetails> newData) {
         list.addAll(newData);
         notifyDataSetChanged();

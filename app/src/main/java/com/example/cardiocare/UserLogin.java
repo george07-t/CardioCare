@@ -27,6 +27,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+/**
+ * Activity for user login.
+ * Allows users to log in with their email and password.
+ * Handles authentication using FirebaseAuth.
+ */
 public class UserLogin extends AppCompatActivity {
     EditText loginEmail, loginPassword;
     Button loginButton;
@@ -83,6 +88,10 @@ public class UserLogin extends AppCompatActivity {
         });
     }
 
+    /**
+     * Perform user login with the provided email and password.
+     * Authenticate the user using FirebaseAuth.
+     */
     private void userlogin() {
         ProgressDialog progressDialog = new ProgressDialog(UserLogin.this);
         progressDialog.setTitle("Loading");

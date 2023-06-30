@@ -17,10 +17,15 @@ import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+/**
+ * This activity displays the onboarding screen to the user.
+ * If the onboarding screen has been shown before, it checks the user's login status.
+ * If the onboarding screen has not been shown before, it shows the onboarding screen to the user.
+ */
 public class GetStarted extends AppCompatActivity {
     ViewPager mSLideViewPager;
     LinearLayout mDotLayout;
-    Button backbtn, nextbtn, skipbtn,getstart;
+    Button backbtn, nextbtn, skipbtn, getstart;
 
     TextView[] dots;
     private FirebaseAuth mAuth;
@@ -39,7 +44,7 @@ public class GetStarted extends AppCompatActivity {
         backbtn = findViewById(R.id.backid);
         nextbtn = findViewById(R.id.nextid);
         skipbtn = findViewById(R.id.skipid);
-        getstart=findViewById(R.id.getstart);
+        getstart = findViewById(R.id.getstart);
 
         SharedPreferences preferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         boolean onboardingShown = preferences.getBoolean(PREFS_KEY_ONBOARDING_SHOWN, false);
@@ -53,6 +58,10 @@ public class GetStarted extends AppCompatActivity {
         }
     }
 
+    /**
+     * Shows the onboarding screen to the user.
+     * Sets up the ViewPager, indicators, and click listeners for buttons.
+     */
     private void showOnboardingScreen() {
         mSLideViewPager = findViewById(R.id.slideViewPager);
         mDotLayout = findViewById(R.id.indicator_layout);
@@ -65,7 +74,7 @@ public class GetStarted extends AppCompatActivity {
         getstart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mSLideViewPager.getCurrentItem() == viewPagerAdapter.getCount() - 1){
+                if (mSLideViewPager.getCurrentItem() == viewPagerAdapter.getCount() - 1) {
                     saveOnboardingShownFlag();
                     checkUserLoginStatus();
                 }
@@ -102,6 +111,11 @@ public class GetStarted extends AppCompatActivity {
         });
     }
 
+    /**
+     * Sets up the indicators for the onboarding slides.
+     *
+     * @param position The current position of the slide
+     */
     private void setUpIndicator(int position) {
         dots = new TextView[viewPagerAdapter.getCount()];
         mDotLayout.removeAllViews();
@@ -117,6 +131,10 @@ public class GetStarted extends AppCompatActivity {
         dots[position].setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.active));
     }
 
+    /**
+     * Listener for ViewPager page changes.
+     * Updates the indicators and visibility of buttons based on the current page position.
+     */
     ViewPager.OnPageChangeListener viewListener = new ViewPager.OnPageChangeListener() {
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -147,6 +165,9 @@ public class GetStarted extends AppCompatActivity {
         }
     };
 
+    /**
+     * Saves the flag indicating that the onboarding screen has been shown.
+     */
     private void saveOnboardingShownFlag() {
         SharedPreferences preferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
@@ -154,6 +175,11 @@ public class GetStarted extends AppCompatActivity {
         editor.apply();
     }
 
+    /**
+     * Checks the user's login status and navigates to the appropriate activity.
+     * If the user is logged in, it navigates to the MainActivity.
+     * If the user is not logged in, it navigates to the UserLogin activity.
+     */
     private void checkUserLoginStatus() {
         FirebaseUser firebaseUser = mAuth.getCurrentUser();
         if (firebaseUser != null) {

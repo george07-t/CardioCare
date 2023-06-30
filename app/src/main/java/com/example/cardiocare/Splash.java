@@ -12,6 +12,10 @@ import androidx.core.content.ContextCompat;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+/**
+ * Splash screen activity that is displayed when the app is launched.
+ * Shows a splash screen for a certain duration and then redirects the user to the appropriate activity.
+ */
 public class Splash extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
@@ -27,25 +31,11 @@ public class Splash extends AppCompatActivity {
             @Override
             public void run() {
 
-                Intent intent=new Intent(Splash.this,GetStarted.class);
+                Intent intent = new Intent(Splash.this, GetStarted.class);
                 startActivity(intent);
                 finish();
             }
-        },3000);
-    }
-
-    private void startApp() {
-        FirebaseUser firebaseUser = mAuth.getCurrentUser();
-        if (firebaseUser != null) {
-            //user log in
-            Intent intent = new Intent(Splash.this, MainActivity.class);
-            startActivity(intent);
-            finish();
-        } else {
-            Intent intent = new Intent(Splash.this, UserLogin.class);
-            startActivity(intent);
-            finish();
-        }
+        }, 3000);
     }
 
     @Override

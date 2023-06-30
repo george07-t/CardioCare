@@ -27,7 +27,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.database.FirebaseDatabase;
-
+/**
+ * This activity allows the user to sign up for a new account.
+ */
 public class UserSignup extends AppCompatActivity {
     EditText signupEmail, signupPassword, signupname, signupnumber;
     TextView loginRedirectText;
@@ -77,7 +79,9 @@ public class UserSignup extends AppCompatActivity {
             }
         });
     }
-
+    /**
+     * Registers a new user account.
+     */
     private void userregister() {
         ProgressDialog progressDialog = new ProgressDialog(UserSignup.this);
         progressDialog.setTitle("Loading");

@@ -43,6 +43,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * The main activity of the CardioCare app.
+ * Displays user measurement data and provides options for adding new measurements,
+ * accessing user profile, and other navigation options.
+ */
 public class MainActivity extends AppCompatActivity {
     private BroadcastReceiver broadcastReceiver1;
     private FloatingActionButton adddataid;
@@ -90,6 +95,9 @@ public class MainActivity extends AppCompatActivity {
         dyaid = view.findViewById(R.id.dyaid);
         heartid = view.findViewById(R.id.heartid);
         Button datainsert = view.findViewById(R.id.datainsertid);
+        /**
+         * A floating button for adding data of the user health.
+         */
         datainsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -150,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
                     } else {
                         comments = "No Comments :)";
                     }
-                    userMeasurementDetails = new UserMeasurementDetails(dateString, timeString, sysdata, dyadata, heartdata, comments,key);
+                    userMeasurementDetails = new UserMeasurementDetails(dateString, timeString, sysdata, dyadata, heartdata, comments, key);
                     ArrayList<UserMeasurementDetails> updatedData = new ArrayList<>();
                     databaseReference2.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(key)
                             .setValue(userMeasurementDetails).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -179,6 +187,9 @@ public class MainActivity extends AppCompatActivity {
         });
         builder.setView(view);
         insert = builder.create();
+        /**
+         * Navigation Drawer contain user profile,signout,aboutus,share app,feedback.
+         */
         //navigarion
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_View);
@@ -216,6 +227,9 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            /**
+             * Check where the user click in the navigation drawer.
+             */
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
@@ -255,7 +269,7 @@ public class MainActivity extends AppCompatActivity {
                         alertBuilder.setIcon(R.drawable.smartphone);
                         alertBuilder.setTitle(Html.fromHtml("<b>" + getString(R.string.app_name) + "</b>"));
                         alertBuilder.setMessage("Monitor, record, and improve your heart health." +
-                                "ake control of your cardiovascular well-being.\n\n" +
+                                "control of your cardiovascular well-being.\n\n" +
                                 "Developd by:\n" +
                                 "George Tonmoy Roy (1907114) \n" +
                                 "                      &\n" +
@@ -306,7 +320,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+/**
+ * Retrieves user measurement details from the database and populates the list.
+ * Sets an item click listener to open the data details view when an item is clicked.
+ */
         databaseReference1.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -358,6 +375,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Handles the back button press event.
+     * Displays an alert dialog to confirm the exit action.
+     */
     @Override
     public void onBackPressed() {
         AlertDialog.Builder alart = new AlertDialog.Builder(MainActivity.this);

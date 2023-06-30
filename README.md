@@ -1,4 +1,3 @@
-[Licence.txt](https://github.com/george07-t/CardioCare/files/11914406/Licence.txt)
 # CardioCare
 
 CardioCare: Track and Improve Heart Health

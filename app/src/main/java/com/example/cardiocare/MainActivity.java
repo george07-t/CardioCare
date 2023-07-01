@@ -143,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
                         return;
                     } else if ((s >= 90 && s <= 140) && (d >= 60 && d <= 90)) {
                         comments = "Normal Pressure";
+
                     } else if (s < 90 && d < 60) {
                         comments = "Low Pressure";
                     } else if (s > 140 && d > 90) {
@@ -155,8 +156,11 @@ public class MainActivity extends AppCompatActivity {
                         comments = "Low Pressure";
                     } else if ((d >= 60 && d <= 90) && s > 140) {
                         comments = "High Pressure";
+                    } else if ((s >= 90 && s <= 140) && (d > 90 && d < s)) {
+                        comments = "High Pressure";
+
                     } else {
-                        comments = "No Comments :)";
+                        comments = "High Pressure :)";
                     }
                     userMeasurementDetails = new UserMeasurementDetails(dateString, timeString, sysdata, dyadata, heartdata, comments, key);
                     ArrayList<UserMeasurementDetails> updatedData = new ArrayList<>();
@@ -330,9 +334,9 @@ public class MainActivity extends AppCompatActivity {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     String dataid = dataSnapshot.getKey();
 
-                    UserMeasurementDetails userTicketDetails = dataSnapshot.getValue(UserMeasurementDetails.class);
-                    userTicketDetails.setDataid(dataid);
-                    list.add(userTicketDetails);
+                    UserMeasurementDetails userMeasurementDetails1 = dataSnapshot.getValue(UserMeasurementDetails.class);
+                    userMeasurementDetails1.setDataid(dataid);
+                    list.add(userMeasurementDetails1);
 
                 }
                 progressDialog1.dismiss();

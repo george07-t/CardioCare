@@ -154,7 +154,7 @@ public class GetStarted extends AppCompatActivity {
                 skipbtn.setVisibility(View.INVISIBLE);
                 getstart.setVisibility(View.VISIBLE);
             } else {
-                nextbtn.setText("Next");
+                nextbtn.setVisibility(View.VISIBLE);
                 getstart.setVisibility(View.INVISIBLE);
                 skipbtn.setVisibility(View.VISIBLE);
             }

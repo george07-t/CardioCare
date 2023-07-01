@@ -1,9 +1,9 @@
 package com.example.cardiocare;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -23,16 +24,14 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * A RecyclerView adapter that displays a list of UserMeasurementDetails objects.
  *
- * @author [George]
+ * @author George
  */
 public class UserMeasurementShowAdapter extends RecyclerView.Adapter<UserMeasurementShowAdapter.MyViewHolder> {
     Context context;
@@ -64,7 +63,7 @@ public class UserMeasurementShowAdapter extends RecyclerView.Adapter<UserMeasure
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(context);
-        View view = layoutInflater.inflate(R.layout.user_ticketshow_sample, parent, false);
+        View view = layoutInflater.inflate(R.layout.user_datashow_sample, parent, false);
 
         return new MyViewHolder(view);
     }
@@ -148,6 +147,7 @@ public class UserMeasurementShowAdapter extends RecyclerView.Adapter<UserMeasure
                 heartid.setText(userMeasurementDetails.getHeartrate());
                 comid.setText(userMeasurementDetails.getComment());
                 dataeditid.setOnClickListener(new View.OnClickListener() {
+                    @SuppressLint("ResourceAsColor")
                     @Override
                     public void onClick(View view1) {
                         ProgressDialog progressDialog = new ProgressDialog(v.getContext());
@@ -187,20 +187,31 @@ public class UserMeasurementShowAdapter extends RecyclerView.Adapter<UserMeasure
                                 return;
                             } else if ((s >= 90 && s <= 140) && (d >= 60 && d <= 90)) {
                                 comments = "Normal Pressure";
+
                             } else if (s < 90 && d < 60) {
                                 comments = "Low Pressure";
+
                             } else if (s > 140 && d > 90) {
                                 comments = "High Pressure";
+
                             } else if (s > 140 && d < 60) {
                                 comments = "Low Pressure";
+
                             } else if (s > 140 && d > 60) {
                                 comments = "High Pressure";
+
                             } else if ((s >= 90 && s <= 140) && d < 60) {
                                 comments = "Low Pressure";
+
                             } else if ((d >= 60 && d <= 90) && s > 140) {
                                 comments = "High Pressure";
+
+                            } else if ((s >= 90 && s <= 140) && (d > 90 && d < s)) {
+                                comments = "High Pressure";
+
                             } else {
                                 comments = "High Pressure :)";
+
                             }
                             DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference("userdata").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(key);
                             Map<String, Object> updates = new HashMap<>();
@@ -262,6 +273,7 @@ public class UserMeasurementShowAdapter extends RecyclerView.Adapter<UserMeasure
          *
          * @param itemView The item layout view.
          */
+        @SuppressLint("ResourceAsColor")
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             date = itemView.findViewById(R.id.dateid);
@@ -273,6 +285,16 @@ public class UserMeasurementShowAdapter extends RecyclerView.Adapter<UserMeasure
             deletedayta = itemView.findViewById(R.id.deletedaytaid);
             editdata = itemView.findViewById(R.id.editdataid);
             itemView.setOnClickListener(this);
+            if (comment.getText() == "Normal Pressure") {
+                comment.setTextColor(R.color.green);
+            } else if (comment.getText() == "Low Pressure") {
+                comment.setTextColor(R.color.blue);
+            } else if (comment.getText() == "High Pressure") {
+                comment.setTextColor(R.color.red);
+            } else if (comment.getText() == "High Pressure :)") {
+                comment.setTextColor(R.color.red);
+            }
+
         }
 
         /**

@@ -7,7 +7,8 @@
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".UserLogin"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:id="@+id/login_page">
 
     <ScrollView
         android:layout_width="match_parent"

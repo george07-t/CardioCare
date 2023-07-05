@@ -4,7 +4,8 @@
     android:layout_height="wrap_content"
     android:padding="20dp"
     android:orientation="vertical"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:id="@+id/data_add">
 
     <ImageView
         android:layout_marginTop="10dp"

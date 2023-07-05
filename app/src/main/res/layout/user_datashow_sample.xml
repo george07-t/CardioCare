@@ -38,7 +38,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Date: "
+                        android:text="Date  :"
                         android:textColor="@color/white"
                         android:textSize="20dp"
                         android:textStyle="bold" />
@@ -65,7 +65,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Time: "
+                        android:text="Time  :"
                         android:textColor="@color/white"
                         android:textSize="20dp"
                         android:textStyle="bold" />
@@ -82,6 +82,7 @@
                 </LinearLayout>
             </LinearLayout>
 
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -90,8 +91,8 @@
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="Systolic pressure: "
+                    android:layout_height="wrap_content"
+                    android:text="Systolic pressure  :"
                     android:textColor="@color/white"
                     android:textSize="20dp"
                     android:textStyle="bold" />
@@ -116,7 +117,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Diastolic pressure: "
+                    android:text="Diastolic pressure:"
                     android:textColor="@color/white"
                     android:textSize="20dp"
                     android:textStyle="bold" />
@@ -141,7 +142,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Heart Rate: "
+                    android:text="Heart Rate:"
                     android:textColor="@color/white"
                     android:textSize="20dp"
                     android:textStyle="bold" />
@@ -166,7 +167,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Comments: "
+                    android:text="Comments:"
                     android:textColor="@color/white"
                     android:textSize="20dp"
                     android:textStyle="bold" />
@@ -191,8 +192,8 @@
                     android:id="@+id/editdataid"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:layout_gravity="center"
                     android:backgroundTint="@color/splash0"
                     android:src="@drawable/baseline_edit_note_24" />
 
@@ -200,8 +201,8 @@
                     android:id="@+id/deletedaytaid"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:layout_gravity="center"
                     android:backgroundTint="@color/splash0"
                     android:src="@drawable/baseline_delete_forever_24" />
 

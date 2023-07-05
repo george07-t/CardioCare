@@ -27,7 +27,7 @@
 
                 <item
                     android:id="@+id/msignout"
-                    android:icon="@drawable/signout"
+                    android:icon="@drawable/baseline_logout_24"
                     android:title="SignOut" />
 
 
@@ -45,7 +45,7 @@
             <menu>
                 <item
                     android:id="@+id/aboutus"
-                    android:icon="@drawable/information"
+                    android:icon="@drawable/baseline_info_24"
                     android:title="About Us" />
                 <item
                     android:id="@+id/shareapp"

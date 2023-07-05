@@ -10,7 +10,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
-
+/**
+ * PagerAdapter for the on boarding in the app.
+ */
 public class ViewPagerAdapter extends PagerAdapter {
 
     Context context;

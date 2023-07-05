@@ -18,6 +18,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
+/**
+ * This activity allows the user to reset their password.
+ */
 public class UserResetPassword extends AppCompatActivity {
     private EditText resetemail;
     private Button resetbutton;
@@ -40,7 +43,9 @@ public class UserResetPassword extends AppCompatActivity {
             }
         });
     }
-
+    /**
+     * Reset the user's password.
+     */
     private void resetpassword() {
         ProgressDialog progressDialog = new ProgressDialog(UserResetPassword.this);
         progressDialog.setTitle("Loading");

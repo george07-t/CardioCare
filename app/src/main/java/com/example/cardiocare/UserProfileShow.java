@@ -16,7 +16,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
+/**
+ * This activity shows the user profile information.
+ */
 public class UserProfileShow extends AppCompatActivity {
     private FirebaseUser user;
     private DatabaseReference databaseReference;

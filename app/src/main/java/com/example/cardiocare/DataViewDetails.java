@@ -2,12 +2,16 @@ package com.example.cardiocare;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
-
+/**
+ * This activity displays the details of a data view.
+ */
 public class DataViewDetails extends AppCompatActivity {
     private TextView dateid,timeid,sytolicid,diastolicid,heartid,comid;
 
@@ -32,6 +36,15 @@ public class DataViewDetails extends AppCompatActivity {
             String heartRate = intent.getStringExtra("heartRate");
             String comment = intent.getStringExtra("comment");
 
+            if (comid.getText() == "Normal Pressure") {
+                comid.setTextColor(getResources().getColor(R.color.green));
+            } else if (comid.getText() == "High Pressure") {
+                comid.setTextColor(getResources().getColor(R.color.red));
+            } else if (comid.getText() == "Low Pressure") {
+                comid.setTextColor(getResources().getColor(R.color.blue));
+            } else if (comid.getText() == "High Pressure :)") {
+                comid.setTextColor(getResources().getColor(R.color.red));
+            }
             // Set the data to the TextViews
             dateid.setText(date);
             timeid.setText(time);

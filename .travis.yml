@@ -1,0 +1,33 @@
+# TRAVIS-CI CODE FOR BUILDING AND EXECUTING UNIT TEST
+
+os: linux
+language: android
+jdk: openjdk17 # change it
+
+android:
+ components:
+   - tools
+   - platform-tools
+   - tools
+   - extra-android-m2repository
+env:
+  global:
+    - TARGET_VERSION=33 #change it
+    - ANDROID_BUILD_TOOLS_VERSION=33.0.1 # > target_version
+    - ANDROID_HOME=~/android-sdk
+
+before_install:
+  - touch $HOME/.android/repositories.cfg
+  - wget "https://dl.google.com/android/repository/commandlinetools-linux-7302050_latest.zip" -O commandlinetools.zip
+  - unzip commandlinetools.zip -d $ANDROID_HOME/
+  - yes | $ANDROID_HOME/cmdline-tools/bin/sdkmanager "platforms;android-${TARGET_VERSION}" --sdk_root=$ANDROID_HOME
+  - yes | $ANDROID_HOME/cmdline-tools/bin/sdkmanager "build-tools;${ANDROID_BUILD_TOOLS_VERSION}" --sdk_root=$ANDROID_HOME
+
+before_script:
+ - chmod +x gradlew #for making file executable
+
+script:
+ - echo "Building project...."
+ - ./gradlew build
+ - echo "Running all unit test..."
+ - ./gradlew test

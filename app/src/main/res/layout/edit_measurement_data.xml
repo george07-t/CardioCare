@@ -18,8 +18,9 @@
             android:text="Your Previous data"
             android:textColor="@color/black"
             android:layout_marginBottom="10dp"
-            android:textSize="30dp"
-            android:textStyle="bold" />
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,9 +36,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Date  :"
+                    android:text="Date  :  "
                     android:textColor="@color/black"
-                    android:textSize="20dp"
+                    android:textSize="17dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -48,7 +49,7 @@
                     android:text="2023-06-16"
                     android:textColor="@color/black"
                     android:textIsSelectable="true"
-                    android:textSize="20sp"
+                    android:textSize="17sp"
                     tools:ignore="TouchTargetSizeCheck" />
 
             </LinearLayout>
@@ -63,9 +64,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Time  :"
+                    android:text="Time  :  "
                     android:textColor="@color/black"
-                    android:textSize="20dp"
+                    android:textSize="17dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -75,7 +76,7 @@
                     android:layout_marginLeft="2dp"
                     android:text="8.53 pm"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="17sp" />
 
             </LinearLayout>
         </LinearLayout>
@@ -92,9 +93,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Systolic pressure  :"
+                android:text="Systolic pressure  :  "
                 android:textColor="@color/black"
-                android:textSize="20dp"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -104,7 +105,7 @@
                 android:layout_marginLeft="2dp"
                 android:text="120 mm Hg"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="17sp" />
 
         </LinearLayout>
 
@@ -112,16 +113,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginTop="10dp"
-
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Diastolic pressure:"
+                android:text="Diastolic pressure  :  "
                 android:textColor="@color/black"
-                android:textSize="20dp"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -131,7 +130,7 @@
                 android:layout_marginLeft="2dp"
                 android:text="80 mm Hg"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="17sp" />
 
         </LinearLayout>
 
@@ -139,15 +138,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Heart Rate:"
+                android:text="Heart Rate  :  "
                 android:textColor="@color/black"
-                android:textSize="20dp"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -157,7 +155,7 @@
                 android:layout_marginLeft="2dp"
                 android:text="80 mm Hg"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="17sp" />
 
         </LinearLayout>
 
@@ -171,9 +169,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Comments:"
+                android:text="Comments  :  "
                 android:textColor="@color/black"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -182,8 +180,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2dp"
                 android:text="good"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textColor="#0030DD"
+                android:textStyle="italic"
+                android:textSize="19sp" />
 
         </LinearLayout>
 
@@ -194,48 +193,47 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
-        android:background="@color/splash0"
+        android:background="@drawable/edit_text_background_stroke"
         android:digits="0123456789"
         android:hint="Systolic pressure in mm Hg"
         android:inputType="number"
         android:paddingLeft="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        android:textColor="@color/black" />
 
     <EditText
         android:id="@+id/dyaeditid"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
-        android:background="@color/splash0"
         android:digits="0123456789"
+        android:background="@drawable/edit_text_background_stroke"
         android:hint="Diastolic pressure in mm Hg"
         android:inputType="number"
         android:paddingLeft="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        android:textColor="@color/black" />
 
     <EditText
         android:id="@+id/hearteditid"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
-        android:background="@color/splash0"
+        android:background="@drawable/edit_text_background_stroke"
         android:digits="0123456789"
         android:hint="heart rate in beats per minute"
         android:inputType="number"
         android:paddingLeft="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        android:textColor="@color/black" />
 
     <Button
         android:id="@+id/dataeditid"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="@color/splash0"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_background"
+        android:padding="5dp"
         android:text="Edit Measurement"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:layout_marginBottom="30dp"/>
 
 </LinearLayout>

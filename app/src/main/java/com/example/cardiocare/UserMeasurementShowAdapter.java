@@ -175,6 +175,21 @@ public class UserMeasurementShowAdapter extends RecyclerView.Adapter<UserMeasure
                             progressDialog.dismiss();
                             hearteditid.requestFocus();
                             return;
+                        } else if (!systolicdata.matches("\\d+")) {
+                            syseditid.setError("Valid data required");
+                            progressDialog.dismiss();
+                            syseditid.requestFocus();
+                            return;
+                        } else if (!diastolicdata.matches("\\d+")) {
+                            dyaeditid.setError("Valid data required");
+                            progressDialog.dismiss();
+                            dyaeditid.requestFocus();
+                            return;
+                        } else if (!hearteditdata.matches("\\d+")) {
+                            hearteditid.setError("Valid data required");
+                            progressDialog.dismiss();
+                            hearteditid.requestFocus();
+                            return;
                         } else {
                             String comments = null;
                             int s, d;

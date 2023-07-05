@@ -131,6 +131,21 @@ public class MainActivity extends AppCompatActivity {
                     progressDialog.dismiss();
                     heartid.requestFocus();
                     return;
+                } else if (!sysdata.matches("\\d+")) {
+                    sysid.setError("Valid Data Required");
+                    progressDialog.dismiss();
+                    sysid.requestFocus();
+                    return;
+                } else if (!dyadata.matches("\\d+")) {
+                    dyaid.setError("Valid data required");
+                    progressDialog.dismiss();
+                    dyaid.requestFocus();
+                    return;
+                } else if (!heartdata.matches("\\d+")) {
+                    heartid.setError("Valid data required");
+                    progressDialog.dismiss();
+                    heartid.requestFocus();
+                    return;
                 } else {
                     String comments = null;
                     int s, d;

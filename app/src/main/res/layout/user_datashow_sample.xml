@@ -3,19 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="5dp"
-    android:layout_marginTop="10dp"
-    android:layout_marginRight="5dp"
-    android:layout_marginBottom="10dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginBottom="20dp"
     android:orientation="horizontal"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="8dp">
+    app:cardCornerRadius="10dp"
+    app:cardElevation="10dp"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/teal_700"
-        android:orientation="horizontal">
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,20 +29,22 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="15dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    >
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Date  :"
-                        android:textColor="@color/white"
-                        android:textSize="20dp"
+                        android:text="Date: "
+                        android:textColor="@color/black"
+                        android:textSize="17dp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -49,9 +53,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="2dp"
                         android:text="2023-06-16"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
+                        android:textSize="16dp"
+                        android:background="@drawable/textview_background"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
                         android:textIsSelectable="true"
-                        android:textSize="20sp" />
+                        />
 
                 </LinearLayout>
 
@@ -65,9 +73,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Time  :"
-                        android:textColor="@color/white"
-                        android:textSize="20dp"
+                        android:text="Time: "
+                        android:textColor="@color/black"
+                        android:textSize="17dp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -76,8 +84,12 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="2dp"
                         android:text="8.53 pm"
-                        android:textColor="@color/white"
-                        android:textSize="20sp" />
+
+                        android:textColor="@color/black"
+                        android:textSize="16dp"
+                        android:background="@drawable/textview_background"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"/>
 
                 </LinearLayout>
             </LinearLayout>
@@ -87,14 +99,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Systolic pressure  :"
-                    android:textColor="@color/white"
-                    android:textSize="20dp"
+                    android:text="Systolic pressure: "
+                    android:textColor="@color/black"
+                    android:textSize="17dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -103,8 +116,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="2dp"
                     android:text="120 mm Hg"
-                    android:textColor="@color/white"
-                    android:textSize="20sp" />
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:background="@drawable/textview_background"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp" />
 
             </LinearLayout>
 
@@ -112,14 +128,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Diastolic pressure:"
-                    android:textColor="@color/white"
-                    android:textSize="20dp"
+                    android:text="Diastolic pressure: "
+                    android:textColor="@color/black"
+                    android:textSize="17dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -128,8 +145,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="2dp"
                     android:text="80 mm Hg"
-                    android:textColor="@color/white"
-                    android:textSize="20sp" />
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:background="@drawable/textview_background"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp" />
 
             </LinearLayout>
 
@@ -137,14 +157,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="15dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Heart Rate:"
-                    android:textColor="@color/white"
-                    android:textSize="20dp"
+                    android:text="Heart Rate: "
+                    android:textColor="@color/black"
+                    android:textSize="17dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -153,8 +174,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="2dp"
                     android:text="80 mm Hg"
-                    android:textColor="@color/white"
-                    android:textSize="20sp" />
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:background="@drawable/textview_background"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp" />
 
             </LinearLayout>
 
@@ -162,14 +186,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Comments:"
-                    android:textColor="@color/white"
-                    android:textSize="20dp"
+                    android:text="Comments: "
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -178,8 +203,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="2dp"
                     android:text="good"
-                    android:textColor="@color/white"
-                    android:textSize="20sp" />
+                    android:textColor="#0004FF"
+                    android:textSize="18dp"
+                    android:background="@drawable/textview_background"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp" />
 
             </LinearLayout>
 
@@ -194,8 +222,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:backgroundTint="@color/splash0"
-                    android:src="@drawable/baseline_edit_note_24" />
+                    android:backgroundTint="@color/black"
+                    android:src="@drawable/baseline_edit_note_24"
+                    android:contentDescription="TODO" />
 
                 <ImageButton
                     android:id="@+id/deletedaytaid"
@@ -203,8 +232,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:backgroundTint="@color/splash0"
-                    android:src="@drawable/baseline_delete_forever_24" />
+                    android:backgroundTint="@color/red"
+                    android:src="@drawable/baseline_delete_forever_24"
+                    android:contentDescription="TODO" />
 
             </LinearLayout>
 

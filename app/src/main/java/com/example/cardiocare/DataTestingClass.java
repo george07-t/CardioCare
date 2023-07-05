@@ -2,7 +2,9 @@ package com.example.cardiocare;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+*This class use for testing data add ,delete etc
+ */
 public class DataTestingClass {
 
     public List<UserMeasurementDetails> records = new ArrayList<>();

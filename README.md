@@ -28,7 +28,7 @@ To get started with CardioCare, follow these steps:
 
 ## License
 
-CardioCare is licensed under the [MIT License](https://github.com/george07-t/CardioCare/files/11914425/sodapdf-converted.pdf).
+CardioCare is licensed under the [MIT License](LICENSE.md).
 
 
 

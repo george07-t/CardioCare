@@ -5,17 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".GetStarted">
+    tools:context=".GetStarted"
+    android:background="@color/white">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="skip"
         android:id="@+id/skipid"
-        android:backgroundTint="@color/teal_700"
+        android:backgroundTint="#6C63FF"
         android:textColor="@color/white"
         android:layout_gravity="right"
         android:layout_margin="20dp"
+
         />
 
     <LinearLayout
@@ -43,11 +45,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:backgroundTint="@color/teal_700"
+            android:backgroundTint="#6C63FF"
             android:text="Get Started"
             android:textColor="@color/white"
-            android:visibility="invisible"
-            android:textStyle="italic" />
+            android:visibility="invisible"/>
 
     </LinearLayout>
 
@@ -62,7 +63,7 @@
             android:layout_height="wrap_content"
             android:text="back"
             android:id="@+id/backid"
-            android:backgroundTint="@color/teal_700"
+            android:backgroundTint="#6C63FF"
             android:textColor="@color/white"
             android:layout_gravity="bottom|start"
             android:visibility="invisible"
@@ -85,7 +86,7 @@
             android:layout_height="wrap_content"
             android:text="Next"
             android:id="@+id/nextid"
-            android:backgroundTint="@color/teal_700"
+            android:backgroundTint="#6C63FF"
             android:textColor="@color/white"
             android:layout_gravity="bottom|end"
             />

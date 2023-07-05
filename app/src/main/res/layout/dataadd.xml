@@ -3,66 +3,74 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="20dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/adddata"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="20dp"
-        android:background="@color/splash0"
         android:padding="20dp"
-        android:text="Data Add"
-        android:textColor="@color/white"
-        android:textSize="30dp"
-        android:textStyle="bold" />
+        android:text="Add a New Entry"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"/>
 
     <EditText
         android:id="@+id/sysid"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_margin="20dp"
-        android:background="@color/splash0"
+        android:layout_margin="10dp"
+        android:background="@drawable/edit_text_background_stroke"
         android:digits="0123456789"
         android:hint="Systolic pressure in mm Hg"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:inputType="number"
         android:paddingLeft="20dp"
-        android:textColorHint="@color/white" />
+        android:paddingRight="10dp"/>
 
     <EditText
         android:id="@+id/dyaid"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_margin="20dp"
-        android:background="@color/splash0"
+        android:layout_margin="10dp"
+        android:background="@drawable/edit_text_background_stroke"
         android:digits="0123456789"
         android:hint="Diastolic pressure in mm Hg"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:inputType="number"
         android:paddingLeft="20dp"
-        android:textColorHint="@color/white" />
+        android:paddingRight="10dp"/>
 
     <EditText
         android:id="@+id/heartid"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_margin="20dp"
-        android:background="@color/splash0"
+        android:layout_margin="10dp"
+        android:background="@drawable/edit_text_background_stroke"
         android:digits="0123456789"
         android:hint="heart rate in beats per minute"
         android:inputType="number"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:paddingLeft="20dp"
-        android:textColorHint="@color/white" />
+        android:paddingRight="10dp"/>
 
     <Button
         android:id="@+id/datainsertid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:backgroundTint="@color/splash0"
+        android:background="@drawable/button_background"
         android:text="Add Measurement"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"/>
 
 </LinearLayout>

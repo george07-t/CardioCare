@@ -46,6 +46,6 @@ If you encounter any issues while using CardioCare or have any questions, please
 
 ## Acknowledgements
 
-We would like to express our gratitude to [Dipto Sir](https://awesomeopensource.com/project/elangosundar/awesome-README-templates). Thank you for your interest in CardioCare. Together, let's track and improve our heart health for a healthier future!
+We would like to express our gratitude to [Dipto Sir](https://www.facebook.com/shafin.ahmed.98478). Thank you for your interest in CardioCare. Together, let's track and improve our heart health for a healthier future!
 
 For more details about CardioCare, please visit [Link](https://github.com/george07-t/CardioCare.wiki.git)

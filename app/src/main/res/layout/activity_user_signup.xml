@@ -82,6 +82,7 @@
             android:layout_margin="10dp"
             android:background="@drawable/edit_text_background_stroke"
             android:hint="Password"
+            android:inputType="textPassword"
             android:paddingLeft="15dp"
             android:paddingRight="10dp"
             android:textColor="@color/black"

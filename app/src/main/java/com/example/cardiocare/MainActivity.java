@@ -404,6 +404,7 @@ public class MainActivity extends AppCompatActivity {
         alart.setTitle("ALERT");
         alart.setMessage("Are you sure exit?");
         alart.setIcon(R.drawable.interrogation);
+
         alart.setPositiveButton("yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {

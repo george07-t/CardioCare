@@ -89,7 +89,7 @@ public class UserMeasurementShowAdapter extends RecyclerView.Adapter<UserMeasure
                 AlertDialog.Builder alart = new AlertDialog.Builder(v.getContext());
                 alart.setTitle("ALERT");
                 alart.setMessage("Are you sure to delete?");
-                alart.setIcon(R.drawable.interrogation);
+                alart.setIcon(R.drawable.baseline_report_problem_24);
                 alart.setPositiveButton("yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

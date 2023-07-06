@@ -6,6 +6,15 @@ CardioCare is an Android app designed to help you monitor, record, and improve y
 
 ![smartphone(2)](https://github.com/george07-t/CardioCare/assets/68592871/c30a7fdf-614b-4ba2-aa8f-5a9c70c89e33)
 
+
+## Features
+
+- Heart Rate Monitoring
+- Blood Pressure Tracking
+- Personalized Insights
+- Actionable Feedback
+- Intuitive Interface
+
 ## Screenshots
 <table>
  <tr>
@@ -39,14 +48,6 @@ CardioCare is an Android app designed to help you monitor, record, and improve y
    <td><img src = "https://github.com/george07-t/CardioCare/assets/68592871/b665d417-341e-4eff-be23-546aa1ab5ba6" height="400px" width="200px"/></td>
  </tr>
  </table>
-
-## Features
-
-- Heart Rate Monitoring
-- Blood Pressure Tracking
-- Personalized Insights
-- Actionable Feedback
-- Intuitive Interface
 
 ## Get Started
 To get started with CardioCare, follow these steps:

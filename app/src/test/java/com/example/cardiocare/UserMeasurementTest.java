@@ -121,5 +121,23 @@ public class UserMeasurementTest {
 
         assertThrows(IllegalArgumentException.class, () -> dataList.deleteData(details));
     }
+    @Test
+    public void testUpdateData() {
+        DataTestingClass dataList = new DataTestingClass();
+
+        // Create the initial data
+        UserMeasurementDetails existdetails = new UserMeasurementDetails("21-05-2020", "5.00", "120", "100", "98", "Normal Pressure", "121");
+        dataList.addData(existdetails);
+
+        // Create the updated data
+        UserMeasurementDetails updatedDetails = new UserMeasurementDetails("21-05-2020", "6.00", "130", "90", "100", "High Pressure", "122");
+
+        // Update the data
+        dataList.updateData(updatedDetails,existdetails);
+
+        // Assert that the data was updated correctly
+        assertTrue(dataList.getData().contains(updatedDetails));
+        assertFalse(dataList.getData().contains(existdetails));
+    }
 
 }

@@ -64,4 +64,21 @@ public class DataTestingClass {
     {
         return records.size();
     }
+
+    /**
+     * this method for update of list
+     */
+    public void updateData(UserMeasurementDetails updatedData,UserMeasurementDetails existdata) {
+        // Check if the updated data exists in the records list
+        if (records.contains(existdata)) {
+            // Get the index of the updated data
+            int index = records.indexOf(existdata);
+            // Replace the old data with the updated data at the same index
+            records.set(index, updatedData);
+        } else {
+            // Throw an exception if the updated data is not found in the records list
+            throw new IllegalArgumentException("Data not found");
+        }
+    }
+
 }
